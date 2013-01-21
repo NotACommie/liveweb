@@ -4,10 +4,10 @@
 #
 #  id         :integer          not null, primary key
 #  title      :string(255)
-#  content    :string(255)
 #  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  content    :text
 #
 
 class Topic < ActiveRecord::Base
@@ -17,7 +17,7 @@ class Topic < ActiveRecord::Base
   
   has_many :replies
 
-  validates :title, presence: true
+  validates :title, presence: true, length: { maximum: 75 }
   validates :content, presence: true
-  validates :user_id, presence: true
+  validates :user_id, presence: true, numericality: { only_integer: true }
 end

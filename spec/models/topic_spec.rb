@@ -4,10 +4,10 @@
 #
 #  id         :integer          not null, primary key
 #  title      :string(255)
-#  content    :string(255)
 #  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  content    :text
 #
 
 require 'spec_helper'
@@ -29,6 +29,11 @@ describe Topic do
   	before { @topic.title = " " }
   	it { should_not be_valid }
   end
+
+  describe "when title is too long" do
+    before { @topic.title = "a" * 76 }
+    it { should_not be_valid }
+  end  
 
   describe "when content is not present" do
   	before { @topic.content = " " }

@@ -19,6 +19,6 @@ class Reply < ActiveRecord::Base
 
   validates :content, presence: true
   validates :title, presence: true
-  validates :user_id, presence: true
-  validates :topic_id, presence: true
+  validates :user_id, presence: true, numericality: { only_integer: true }
+  validates :topic_id, presence: true, numericality: { only_integer: true }
 end

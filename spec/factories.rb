@@ -16,5 +16,6 @@ FactoryGirl.define do
   factory :topic do
     title "Tets topic title"
     content "Test topic content"
+    user
   end  	
 end

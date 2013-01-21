@@ -1,7 +1,12 @@
 Liveweb::Application.routes.draw do
 
+  #get "replies/new"
+
   resources :users
-  resources :topics
+  resources :topics do
+    resources :replies
+  end  
+  #resources :replies
   resources :sessions, only: [:new, :create, :destroy]
 
   root to: 'static_pages#home'
