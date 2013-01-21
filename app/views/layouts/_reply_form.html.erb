@@ -1,0 +1,15 @@
+<h1>NEW TOPIC</h1>
+	<div class="row">
+  		<div class="span6 offset3">
+    		<%= form_for(@reply)  do |f| %>
+
+      		<%= f.label :title %>
+      		<%= f.text_field :title, :placeholder => "Title" %>
+
+      		<%= f.label :content %>
+      		<%= f.text_area :content %>
+
+      		<%= f.submit "Submit reply", class: "btn btn-large btn-primary" %>
+    	<% end %>
+  	</div>
+</div>

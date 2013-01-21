@@ -1,0 +1,53 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <a class="brand" href="#">Title</a>
+    <ul class="nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Link</a></li>
+      <li><a href="#">Link</a></li>
+    </ul>
+    <ul class ="nav pull-right">
+    	<% if signed_in? %>
+    	<li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.name %> <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+        	<li><%= link_to "Sign out", signout_path, method: "delete" %>
+        </ul>
+        <% else %>
+        <li><a href="#signinModal" data-toggle="modal"><i class="icon-user"></i> <strong>Sign in</strong></a></li>
+        <% end %>
+    </ul>	
+  </div>
+</div>
+
+
+<!-- singinModal -->
+<div id="signinModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="ReplyFormModal" aria-hidden="true">
+    <div class="modal-header message-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h1 id="myModalLabel">Sign In</h3>
+    </div>
+    <div class="modal-body">
+
+	  <%= form_for(:session, url: sessions_path, :html => {:class => "form-horizontal"} ) do |f| %>
+	  <div class="control-group">
+      		<%= f.label :email, :class => "control-label" %>
+      		<div class="controls">
+      			<%= f.text_field :email %>
+ 	  		</div>
+ 	  </div>	
+
+ 	  <div class="control-group">
+      	<%= f.label :password, :class => "control-label" %>
+      	<div class="controls">
+      		<%= f.password_field :password %>
+      	</div>
+      </div>		
+
+    </div>
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+      <% end %>
+    </div>
+</div>

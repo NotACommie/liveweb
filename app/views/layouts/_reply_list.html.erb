@@ -1,0 +1,26 @@
+<% for reply in replies %>
+	<div class="container">
+
+	
+		<div class="topic-header">
+			<h1><%= @reply.title %></h1>
+		</div>		
+		<div class="row">
+			<div class="span12 jim-test2">
+				<h2>	
+				<%= @reply.user.name %>
+				<small>
+				<%= @reply.user.email %>
+				</small>
+				</h2>	
+				<p>
+				<%= @reply.content %>
+			</p>
+			</small>
+				</h2>
+			</div>
+		</div>
+	</div>
+		
+</div>	
+<% end %>	

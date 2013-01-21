@@ -7,10 +7,15 @@ gem 'bootstrap-sass', '2.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+
+group :production do
+  gem 'pg', '0.12.2'
+  gem 'thin'
+end  
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.12.2'
+  gem 'sqlite3', '1.3.7'
 end
 
 group :development do

@@ -1,0 +1,60 @@
+@import "bootstrap";
+
+/* universal */
+
+html {
+  overflow-y: scroll;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  padding-top: 60px;
+  background-color: #fff;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+form.ReplyForm {
+  width: 75%;
+}
+
+/* MY TEST STUFF */
+
+
+.topichead {
+	-moz-box-shadow: -2px 2px 2px #c8c8c8;
+	-webkit-box-shadow: -2px 2px 2px #c8c8c8;
+	box-shadow: -2px 2px 2px #c8c8c8;
+}
+
+.messages-sidenav {
+  max-width: 15%;
+  margin: 30px 0 0;
+  padding: 0;
+  background-color: #fff;
+}
+
+.messages-sidenav .icon-list {
+  float: right;
+  margin-top: 2px;
+  margin-right: -6px;
+  opacity: .25;
+}
+
+.navbar .nav > li > a {
+    color:  #007dbc;;
+}

@@ -1,0 +1,47 @@
+<% provide(:title, 'View topic') %>
+
+<%= render 'layouts/navbar_top' %>
+
+<%= render 'layouts/navbar_side' %>
+
+<div class="span9">
+	<div class="message-header">
+		<h1><%= @topic.title %>
+		<span class="badge "><%= @messagecount = 1 %></span>
+		</h2>
+	</div>		
+	<div class="message-body">
+		<div class="user-info">
+  			<%= @topic.user.name %>
+			<small>  <%= @topic.created_at.strftime("%m/%d/%y at %l:%M %p") %></small>	
+		</div>	
+		<p><%= @topic.content %></p>		
+	</div>
+	<div class="message-footer">
+		<a href="#replyModal" role="button" class="btn btn-small btn-info" data-toggle="modal"><i class="icon-envelope icon-white"></i>  Send Private Message</a>
+		<a href="#replyModal" role="button" class="btn btn-small btn-primary" data-toggle="modal"><i class="icon-pencil icon-white"></i>  Reply</a>
+	</div>
+</div>	
+
+
+<%= render 'reply_modal' %>
+
+
+
+
+<% replies = Reply.find_all_by_topic_id(params[:id]) %>
+<%= render :partial => 'reply_list', :locals => {:replies => replies} %>
+
+
+<%= link_to "Sign out", signout_path, method: "delete" %>
+
+<%= form_for([@topic, @topic.replies.build]) do |f| %>
+	<%= f.label :title %>
+      		<%= f.text_field :title, :placeholder => "Title" %>
+
+      		<%= f.label :content %>
+      		<%= f.text_area :content %>
+
+
+      		<%= f.submit "Submit reply", class: "btn btn-large btn-primary" %>
+<% end %>

@@ -1,0 +1,22 @@
+<% for reply in replies %>
+
+<div class="container">
+	<div class="message-header">
+		<h1><%= reply.title %>
+		<span class="badge badge-info"><%= @messagecount += 1 %></span>
+		</h1>
+	</div>		
+	<div class="row">
+		<div class="span12">
+			<div class="message-body">
+				<h2>	
+					<%= reply.user.name %>
+					<small><%= reply.user.email %></small>
+				</h2>	
+					<p><%= reply.content %></p>
+			</div>
+		</div>
+ 	</div>	
+</div>	
+
+<% end %>	
