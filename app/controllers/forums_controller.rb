@@ -17,8 +17,8 @@ class ForumsController < ApplicationController
   		if @forum.save
   			flash[:success] = "Topic created!"
   			redirect_to root_url
-  	else
-  		render 'static_pages/help'
+  		else
+  			render 'static_pages/help'
   	end
   end			
 
