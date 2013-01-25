@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import "font-awesome";
 
 /* universal */
 
@@ -48,12 +49,10 @@ form.ReplyForm {
   background-color: #fff;
 }
 
-.messages-sidenav .icon-list {
-  float: right;
-  margin-top: 2px;
-  margin-right: -6px;
-  opacity: .25;
+.sidebar-nav {
+  max-width: 200px;
 }
+
 
 .navbar .nav > li > a {
     color:  #007dbc;;

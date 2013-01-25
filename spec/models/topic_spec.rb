@@ -2,12 +2,15 @@
 #
 # Table name: topics
 #
-#  id         :integer          not null, primary key
-#  title      :string(255)
-#  user_id    :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  content    :text
+#  id            :integer          not null, primary key
+#  title         :string(255)
+#  user_id       :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  content       :text
+#  forum_id      :integer
+#  views         :integer          default(0)
+#  replies_count :integer          default(0)
 #
 
 require 'spec_helper'

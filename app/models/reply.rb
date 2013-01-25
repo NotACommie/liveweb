@@ -15,7 +15,7 @@ class Reply < ActiveRecord::Base
   attr_accessible :content, :title
 
   belongs_to :user
-  belongs_to :topic
+  belongs_to :topic, :counter_cache => true
 
   validates :content, presence: true
   validates :title, presence: true

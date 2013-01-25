@@ -1,9 +1,5 @@
 <% provide(:title, 'View topic') %>
 
-<%= render 'layouts/navbar_top' %>
-
-<%= render 'layouts/navbar_side' %>
-
 <div class="span9">
 	<div class="message-header">
 		<h1><%= @topic.title %>
@@ -26,16 +22,19 @@
 
 <%= render 'reply_modal' %>
 
+<% @topic.replies.each do |reply| %>
+
+<%= reply.title %>
+
+<% end %>
 
 
 
-<% replies = Reply.find_all_by_topic_id(params[:id]) %>
-<%= render :partial => 'reply_list', :locals => {:replies => replies} %>
 
 
 <%= link_to "Sign out", signout_path, method: "delete" %>
 
-<%= form_for([@topic, @topic.replies.build]) do |f| %>
+<%= form_for([@topic, @reply]) do |f| %>
 	<%= f.label :title %>
       		<%= f.text_field :title, :placeholder => "Title" %>
 

@@ -2,17 +2,34 @@
 <html>
 <head>
   <title><%= full_title(yield(:title)) %></title>
+
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body>	
 
-<% flash.each do |key, value| %>
-   <%= content_tag(:div, value, class: "alert alert-#{key}") %>
-<% end %>	
+<%= render 'layouts/navbar_top' %>
 
-<%= yield %>
+<div class="container-fluid"><!-- begin container for sidenav and main body -->
+
+	<% render :partial => 'layouts/nav_buttons' %>
+
+	<%= render 'layouts/navbar_side' %>
+
+	<!-- containter remains open -->
+
+	<div class="span10"><!-- the main body is within this span9 row (sidenav = span3) -->
+
+		<% flash.each do |key, value| %>
+   		<%= content_tag(:div, value, class: "alert alert-#{key}") %>
+		<% end %>	
+
+		<%= yield %>
+
+	</div><!-- end main body span9 row -->
+</div><!-- end main body container -->
+
 
 <%= debug(params) if Rails.env.development? %>
 

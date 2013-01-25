@@ -1,0 +1,84 @@
+// Place all the styles related to the Forums controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.forum-header {
+	background-color: #F5F5F5;
+  border: 1px solid #e5e5e5;
+  margin: 0px 0px 20px;
+    h1{
+   		margin: 5px 0px 10px 0px;
+   		font-size: 25px;
+    }
+ }
+
+ .reply-arrow-down {
+  margin-right: 10px;
+ }
+
+ .reply-arrow-up {
+  margin-top: 6px;
+ }
+
+ .downarrow {
+  color: #fff;
+ }
+
+ .forum-header-orderby {
+  background-color: #F5F5F5;
+  border: 1px solid #e5e5e5;
+ }
+
+
+ .forum-info {
+  background-color: #fff;
+  border-bottom: 1px solid #F5F5F5;
+	list-style: none;
+	color: #007dbc;
+	font-weight: bold;
+    small{
+    padding-left: 20px;
+    }
+}
+
+.forum-name {
+  padding-left: 10px;
+}
+
+.forum-description {
+  margin-top: -10px;
+}
+
+.topic-info{
+  font-size: 75%;
+  padding-top: 7px;
+  color: #999999;
+  float: right;
+}
+
+.reply-count-header {
+  background-color: #F5F5F5;
+  color: #000;
+  margin-top: 5px;
+  font-size: 70%;
+  text-align: center;
+}
+
+.reply-count-body {
+  font-weight: bold;
+  font-size: 200%;
+}
+
+.icon-time {
+  padding-left: 10px;
+}
+
+.icon-comments {
+  padding-left: 10px;
+}
+
+.reply-count {
+  padding-left: 10px;
+  float: right;
+  display: inline-block;
+}

@@ -1,11 +1,9 @@
 class TopicsController < ApplicationController
   before_filter :signed_in_user, only: [:new, :create]
 
-  def index
-  end
-
   def create
   	@topic = current_user.topics.build(params[:topic])
+    @topic.forum_id = params[:forum_id]
   	if @topic.save
   		flash[:success] = "Topic created!"
   		redirect_to root_url
@@ -15,15 +13,15 @@ class TopicsController < ApplicationController
   end			
 
   def new
-  	@topic = Topic.new
+    @forum = Forum.find(params[:forum_id])
+  	@topic = @forum.topics.new
   end
 
   def show
-  	@topic = Topic.find(params[:id])  
+  	@topic = Topic.includes(:replies).find(params[:id])
+    @topic.views += 1
+    @topic.save
+    @reply = @topic.replies.new  
   end
-
-  def reply
-    @reply = current_user.replies.create(params[:id])
-    render 'reply_form'
-  end  	
+  	
 end

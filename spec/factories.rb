@@ -13,9 +13,20 @@ FactoryGirl.define do
   	user
   end
 
+  factory :category do
+    name "Test Category"
+  end   
+
+  factory :forum do
+    name "Forum Title"
+    description "Forum description"
+    category 	
+  end
+
   factory :topic do
     title "Tets topic title"
     content "Test topic content"
     user
-  end  	
-end
+    forum
+  end
+end  

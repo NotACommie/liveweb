@@ -1,7 +1,10 @@
 Liveweb::Application.routes.draw do
 
   #get "replies/new"
-
+  resources :forums do
+    resources :topics
+   end 
+  
   resources :users
   resources :topics do
     resources :replies
