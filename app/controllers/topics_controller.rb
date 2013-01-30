@@ -23,5 +23,4 @@ class TopicsController < ApplicationController
     @topic.save
     @reply = @topic.replies.new  
   end
-  	
 end

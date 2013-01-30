@@ -15,6 +15,7 @@ class Forum < ActiveRecord::Base
   attr_accessible :name, :description, :category_id
 
   has_many :topics
+  has_many :replies, :through => :topics
   has_many :users
   belongs_to :category
 

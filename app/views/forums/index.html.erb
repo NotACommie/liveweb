@@ -1,13 +1,11 @@
 <% provide(:title, "View forums") %>
 
-<% current_id = 0 %>
 
-<% @forums.each do |forum| %>
-  <% if current_id != forum.category.id %>       <%# if to display the forum header just once per loop %>
+<% @forum_groups.each do |category, forums| %>
     <div class="row-fluid">
       <div class="span12 forum-header">
-        <%= forum.category.name %><%= current_id %>
-  <% end %>
+        <%= category %>
+    <% forums.each do |forum| %>
     <div class="row-fluid forum-info">
       <div class="span3 forum-name"><h4><i class="icon-folder-close-alt">
       	</i> <%= link_to forum.name, forum_path(forum) %></h4>
@@ -18,14 +16,13 @@
       <div class="span4 forum-description"><h4><small>Nice e</small></h4></div>
       <div class="span2 offset3 topic-count">Topics
       	<div class="row-fluid">
-      		<div class="span12"><%= forum.topics.size %></div>curid: <%= current_id %>
+      		<div class="span12"><%= forum.topics.size %></div>
       	</div>
       </div>	
     </div>
-    <% current_id = forum.category.id %>
+    <% end %>
     <% end %>
   </div>
 </div>
 </div>
 </div>
-<%= @forums %>

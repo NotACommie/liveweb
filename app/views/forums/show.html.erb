@@ -1,6 +1,6 @@
 <div class="row-fluid"><!-- begin forum body -->
     <div class="span12 forum-header">
-      <%= @forum.name %>
+      <%= link_to @forum.category.name, forums_path %> <i class="icon-chevron-right"></i> <%= @forum.name %>
       <a href="#"><i class="icon-sort-down pull-right reply-arrow-down"></i></a>
       <i class="icon-sort-up pull-right reply-arrows reply-arrow-up"></i></span>
   		<% @forum.topics.each do |topic| %>
@@ -14,13 +14,22 @@
       					<div class="span12 forum-description topic-info">
                     <i class="icon-user"></i> Posted by <%= link_to topic.user.name, user_path(topic.user) %>    
                     <i class="icon-time"></i> <%= topic.created_at.strftime("%m/%d/%y at %l:%M %p") %>
-                    <i class="icon-comments"></i> <%= pluralize topic.replies.size, 'reply' %>
+                    <i class="icon-comments"></i> <%= pluralize topic.replies.size, 'reply' %> 
                  </div>   
       				</div><!-- end nested row -->
       			</div>
-            <div class="span1 offset3 reply-count-header">Views
+            <% unless topic.replies.size == 0 %>
+            <div class="span2 offset1 view-count-header">Last action
+              <div class="row-fluid"><!-- begin last action nested row -->
+                <div class-"span12 view-count-body">
+                  <%= topic.replies.last.title %> <%= topic.replies.last.user.name %>
+                </div> 
+              </div><!-- end last action nested row --> 
+            </div>
+            <% end %>      
+            <div class="span1 view-count-header">Views
               <div class="row-fluid"><!-- begin Views nested row -->
-                <div class="span12 reply-count-body"><%= topic.views %></div>
+                <div class="span12 view-count-body"><%= topic.views %></div>
               </div><!-- end Views nested row -->
             </div>
       			<div class="span1 reply-count-header"><%= "Reply".pluralize(topic.replies.size) %>

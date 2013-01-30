@@ -1,7 +1,8 @@
 class ForumsController < ApplicationController
 
 	def index
-		@forums = Forum.includes(:category)
+		@forums = Forum.includes(:topics, :category)
+		@forum_groups = @forums.group_by { |f| f.category.name }
 	end	
 
 	def new
@@ -9,7 +10,7 @@ class ForumsController < ApplicationController
 	end
 
 	def show
-		@forum = Forum.includes(:topics => :user).find(params[:id])
+		@forum = Forum.includes(:topics => [{:replies => :user}, :user]).find(params[:id])
 	end
 		
 	def create
@@ -20,6 +21,6 @@ class ForumsController < ApplicationController
   		else
   			render 'static_pages/help'
   	end
-  end			
+  end				
 
 end
